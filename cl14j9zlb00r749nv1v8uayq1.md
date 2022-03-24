@@ -70,7 +70,6 @@ Merge Request API:
 
 ```javascript
 fastify.post('/merge', async function (request, reply) {
-    console.log(request.body);
     const resposeGitlab = request.body;
     let config = {
       headers: {
@@ -78,7 +77,7 @@ fastify.post('/merge', async function (request, reply) {
       },
     };
     const issue = getIssueName(resposeGitlab.object_attributes.source_branch);
-    // If it's create branch then move card to in-progress
+ 
     if (
       resposeGitlab.object_kind === 'merge_request' &&
       (resposeGitlab.object_attributes.action === 'open' ||
@@ -105,14 +104,12 @@ Create Branch API:
 
 ```javascript
  fastify.post('/push', async function (request, reply) {
-    console.log(request.body);
     const resposeGitlab = request.body;
     let config = {
       headers: {
         'content-type': 'application/json',
       },
     };
-    // If it's create branch then move card to in-progress
     if (
       resposeGitlab.object_kind === 'push' &&
       resposeGitlab.before === '0000000000000000000000000000000000000000'
