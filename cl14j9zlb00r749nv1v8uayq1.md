@@ -15,7 +15,7 @@ Finally, we create a rule to listen to the webhook provided by the "Automation f
 - Install Git Integration for Jira from [here](https://marketplace.atlassian.com/apps/4984/git-integration-for-jira?hosting=datacenter&tab=overview)
 - Install Automation for Jira - Data Center and Server from [here](https://marketplace.atlassian.com/apps/1215460/automation-for-jira-data-center-and-server?hosting=datacenter&tab=overview)
 - Configure the "Git Integration for Jira" plugin to connect to your main repository account.
-- Create an API service that server as a middleware between Gitlab and Jira
+- Create an API service to serve as a middleware between Gitlab and Jira
 - Add these APIs to your webhook of a repository.
 - Create a new rule in Jira to listen to incoming webhook that are fired by API service. and trigger the automation rule.
 
@@ -23,9 +23,9 @@ Finally, we create a rule to listen to the webhook provided by the "Automation f
 
 # Solution
 
-To solve the problem I installed the necessary plugins in Jira. One for connecting to Gitlab and the other one for creating automation rules.
+To solve the problem, I installed the necessary plugins in Jira. One for connecting to Gitlab and the other one for creating automation rules.
 
-I also created an API service to be a middleware service between Github and Jira.
+I also created an API service to be as a middleware service between Github and Jira.
 
 ## Git Integration for Jira Plugin
 
