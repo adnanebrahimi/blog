@@ -1,13 +1,13 @@
 ## Integrating Jira with Gitlab
 
 # Problem
-My team was suffered from taking care of Jira tickets manually, they always need to remember moving tickets to Code Complete after their coding was done and again remember moving them to Ready for QA when their PR get merged. So, it didn't work most of the time. they forgot to do that on every ticket and our development process was not clear after some time, sometimes they didn't remember which ticket is merged or code completed. So I decided to fix it once and for all.
+My team was suffered from taking care of Jira tickets manually, they always needed to remember moving tickets to Code Complete after their coding was done and again remembered moving them to Ready for QA when their PR got merged. So, it was not working most of the time. they forgot to do that on every ticket and our development process was not clear after a while, sometimes they could not remember which ticket was merged or code was completed. So I decided to fix it once and for all.
 
 # TLDR
 
-For moving tickets in Jira workflow in Jira Data-Center, we going to install two Jira plugins called " Git Integration for Jira" and "Automation for Jira - Data Center and Server".
-Then, we going to create two APIs for creating branches and creating merge requests and set them for each repository in webhook settings.
-Finally, we going to create a rule to listen to the webhook provided by the "Automation for Jira" plugin and detect the type of webhook (new branch or merge request), and based on that we move tickets to "Code Complete" or "Ready for QA" lists.
+For moving tickets in Jira workflow in Jira Data-Center, installing two Jira plugins called " Git Integration for Jira" and "Automation for Jira - Data Center and Server" are needed.
+Then we create two APIs in order to create branches and merge requests and setting them for each repository in webhook settings.
+Finally, we create a rule to listen to the webhook provided by the "Automation for Jira" plugin and detect the type of webhook (either the new branch or merge request), and based on that we move tickets to "Code Complete" or "Ready for QA" lists.
 
 
 **Steps:**
@@ -15,7 +15,7 @@ Finally, we going to create a rule to listen to the webhook provided by the "Aut
 - Install Git Integration for Jira from [here](https://marketplace.atlassian.com/apps/4984/git-integration-for-jira?hosting=datacenter&tab=overview)
 - Install Automation for Jira - Data Center and Server from [here](https://marketplace.atlassian.com/apps/1215460/automation-for-jira-data-center-and-server?hosting=datacenter&tab=overview)
 - Configure the "Git Integration for Jira" plugin to connect to your main repository account.
-- Create an API service for detecting creating a branch and merge request.
+- Create an API service that server as a middleware between Gitlab and Jira
 - Add these APIs to your webhook of a repository.
 - Create a new rule in Jira to listen to incoming webhook that are fired by API service. and trigger the automation rule.
 
