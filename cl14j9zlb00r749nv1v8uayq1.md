@@ -43,6 +43,8 @@ The "Git Integration for Jira" plugin adds new features for creating a branch an
 ![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1648068521986/Xhzdsgmjj.png)
 In this page you will see all your accessible repositories
 > make sure you are connected by your main organization account to be able to list all of the repositories for your team
+
+
 - click on Pers. Access on one of your repository
 
 ![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1648068844308/UP5fwwWZ8.png)
