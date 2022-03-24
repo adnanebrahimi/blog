@@ -136,13 +136,13 @@ Create Branch API:
   });
 ```
 In both APIs firstly, I detected the type of Gitlab Webhook in the `for` block.
-> Creating branch is also a Push command but the difference is there is no commit yet in the branch so, resposeGitlab.before will equal to 0000000000000000000000000000000000000000
+> Creating branch is also a Push command however the difference is that, there is no commit yet in the branch so, resposeGitlab.before will equal to 0000000000000000000000000000000000000000
 
 After detecting the type of webhook it's time to send our request with a special payload to the Jira automation hook.
 In our payload We have an issue array and data object. in the issues we send our ticket number (e.g. ABS-123) this issues number will be detected by our rule from automation and then transitions will be applied on that ticket. In the data, we will send the condition for our rule to move the ticket to Code Complete or to Ready for QA.
 
 ## Create a rule
-In Jira, We going to create a new rule for detecting the git events and moving tickets to the desired state
+In Jira, We create a new rule for detecting the git events and moving tickets to the desired state
 
 ![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1648071504927/l65qvtUxy.png)
 
