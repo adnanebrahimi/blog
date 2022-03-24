@@ -42,11 +42,11 @@ The "Git Integration for Jira" plugin adds new features for creating a branch an
 
 ![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1648068521986/Xhzdsgmjj.png)
 In this page you will see all your accessible repositories
-> make sure you connect by your main organization account to be able to list all of the repositories for your team
+> make sure you are connected by your main organization account to be able to list all of the repositories for your team
 - click on Pers. Access on one of your repository
 
 ![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1648068844308/UP5fwwWZ8.png)
-And set your personal access token
+And set your Personal Access Token
 
 ![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1648068871454/dbQrdJzLJ.png)
 
@@ -54,7 +54,7 @@ Now you allow Jira to create branches and merge requests by your account
 
 ## Automation for Jira - Data Center and Server Plugin
 This plugin allows us to define automation rules based on events. these events can be triggered from outside of Jira(Webhooks) or inside of Jira (Writing ticket number in the comment section of another ticket or moving parent tickets to another state of the workflow if child tickets are completed and etc.)
-These rules have two scopes ( Global or Project ) if a rule's scope is set to global it means this rule will be applied to all projects. If the role's scope is set to project, then we need to define the project(s) for that rule to be applied
+These rules have two scopes ( Global or Project ) if a rule's scope is set to global, it means this rule will be applied to all projects. Provided that the role's scope is set to project, then we need to define the project(s) for that rule to be applied
 
 ![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1648069510074/dbzv5rGOn.png)
 I will show you how to create rules in the next section.
