@@ -57,7 +57,7 @@ After fixing the default import now it's time to do the magic. We now detect bot
 
 ![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1650260169304/CszpW3TPe.png)
 
-## Test
+# Test
 
 To test how it works we going to build and run the application on SSR and do some checks in the browser.
 
@@ -85,9 +85,9 @@ And with the user-agent as Googlebot, we will see the application in SSR:
 
 ![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1650261505659/lfj0rpt1B.png)
 
-## Conclusion
+# Conclusion
 
-With this approach you can serve your heavy application SEO-friendly and User-friendly at the same time. 
+With this approach, you can serve your heavy application SEO-friendly and User-friendly at the same time. 
 
 Please check out the source code at https://github.com/adnanebrahimi/angular-csr-ssr and don't forget to leave a comment if you like it.
 
