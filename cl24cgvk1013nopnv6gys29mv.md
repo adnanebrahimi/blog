@@ -1,6 +1,6 @@
-## How to switch between Angular SSR or CSR based on detecting user-agent
+## How to switch between Angular SSR and CSR based on detecting user-agent
 
-Since SSR is good for SEO and crawler bots, it's not good enough for users. For example, the transitions between pages could be slowed down if your site traffics get high. there are a lot of Pros and Cons for SSR and CSR I'm not digging into them. What we want here is to have both of them at the same time. We want SSR for SEO and CSR for users.
+Since SSR is good for SEO and crawler bots, it's not good enough for users. For example, the transitions between pages could be slowed down if your site traffics get high. there are a lot of pros and cons for SSR and CSR I'm not digging into them. What we want here is to have both of them at the same time. We want SSR for SEO and CSR for users.
 
 # How
 
@@ -26,7 +26,7 @@ In the terminal, run the command `npm install isbot`
 
 ## Config server.ts
 
-In the `server.ts` we going to use isbot to detect whether the user-agent is a bot or not. To do that, we going to import the package
+In the `server.ts` we are going to use isbot to detect whether the user-agent is a bot or not. In order to do that, we are going to import the package
 
 ```ts
 import isbot from 'isbot';
@@ -40,7 +40,7 @@ To allow default import, we set `"allowSyntheticDefaultImports": true,` in `tsco
 
 ![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1650259072769/QQDC9bTDU.png)
 
-After fixing the default import now it's time to do the magic. We now detect bots and run the application as SSR otherwise run the application as CSR
+After fixing the default import, now it's time to do the magic. We now detect bots and run the application as SSR otherwise, run the application as CSR
 
 ```ts
 // All regular routes use the Universal engine
@@ -59,26 +59,26 @@ After fixing the default import now it's time to do the magic. We now detect bot
 
 # Test
 
-To test how it works we going to build and run the application on SSR and do some checks in the browser.
+To test how it works, we build and run the application on SSR and do some checks in the browser.
 
 By clicking on http://localhost:4200 we will see the message in the console log that it's running on CSR.
 
 ![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1650260276104/RC0jDps12.png)
 
-Now, we going to check what will happen when the bot is coming to the site. To do that we going to open network conditions in Inspect Element > Newrok > Network Conditions
+Now, we check what will happen when the bot is coming to the site. In order to do that, we open network conditions in Inspect Element > Newrok > Network Conditions
 
 ![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1650260685188/ELjAe2FzL.png)
 
-Select Googlebot and reload the page:
+Select the Googlebot and reload the page:
 
 ![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1650260772992/Ol2-fYu4H.png)
-to check it by `view on the source` we going to open it and again check it with the default user agent and Googlebot
+to check it by `view on the source` we to open it and again check it with the default user agent and the Googlebot
 
 With the default user agent we will see our application run on CSR:
 
 ![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1650261412055/OF0iuA_zf.png)
 
-And with the user-agent as Googlebot, we will see the application in SSR:
+And with the user-agent as the Googlebot, we will see the application in SSR:
 
 
 ![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1650261486626/sXnbDwJeu.png)
