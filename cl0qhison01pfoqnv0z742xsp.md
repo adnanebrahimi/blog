@@ -25,18 +25,19 @@ After several searches with a headache, I've found the solution 🎉 In this [ar
 
 So I added `KexAlgorithms curve25519-sha256,ecdh-sha2-nistp521` below `Host *` on both Jumpbox and Destination Server: \`\`\`bash Host \* KexAlgorithms curve25519-sha256,ecdh-sha2-nistp521
 
-````plaintext
-> I added  `curve25519-sha256` as well because I see that in the pipeline the ssh client selected this algorithm.
+I added \`curve25519-sha256\` as well because I see that in the pipeline the ssh client selected this algorithm.
 
 I ran the pipeline again but guess what? it didn't work!
-So, I've came to test something, Firstly, I deleted the Kex Algorithms on Jumpbox Server and then tried to connect to the destination server from Jumpbox and I saw that the `connection time out!` So it came to my mind that in the pipeline the same thing happend. I need to set Kex Algorithm on the pipeline as well as both servers.
 
-I edited my `.gitlab-ci.yml` file and added`- sed -i -e "s/Host \*/&\nKexAlgorithms curve25519-sha256,ecdh-sha2-nistp521/g"  ` line before anything with ssh:
+So, I've came to test something, Firstly, I deleted the Kex Algorithms on Jumpbox Server and then tried to connect to the destination server from Jumpbox and I saw that the \`connection time out!\` So it came to my mind that in the pipeline the same thing happend. I need to set Kex Algorithm on the pipeline as well as both servers.
+
+I edited my \`.gitlab-ci.yml\` file and added\`- sed -i -e "s/Host \\\*/&\\nKexAlgorithms curve25519-sha256,ecdh-sha2-nistp521/g" \` line before anything with ssh:
+
 ```yaml
 before_script:
     - apk add openssh-client rsync
     - sed -i -e "s/Host \*/&\nKexAlgorithms curve25519-sha256,ecdh-sha2-nistp521/g"  /etc/ssh/ssh_config
-````
+```
 
 with `sed -i -e "s/Host \*/&\nKexAlgorithms curve25519-sha256,ecdh-sha2-nistp521/g" /etc/ssh/ssh_config` , I added Kex Algorithms to the ssh\_config file and tried again.
 
@@ -54,9 +55,9 @@ Connection closed by UNKNOWN port 65535
 
 Try two things first:
 
-*   Enable Verbose log -vvv for debug levels 1,2 and 3
+* Enable Verbose log -vvv for debug levels 1,2 and 3
     
-*   Check at which step the ssh stuck and google that!
+* Check at which step the ssh stuck and google that!
     
 
 If the pipeline stuck at `SSH2_MSG_KEX_ECDH_REPLY` then you should set Kex Algorithms on `.gitlab-ci.yml` and `/etc/ssh/ssh_config` of your server.
